@@ -33,7 +33,7 @@
     <h1 class="display-9">Debugging</h1>
     <div *ngVar="session$ | async as session" class="container" style="margin-top: 5px;">
       <div id="debug-btn">
-        <a class="btn btn-link" href="https://localhost:8443/api/" target="_blank">Cert</a>
+        <a class="btn btn-link" href="{{api}}" target="_blank">Cert</a>
         <button routerLink="/login" type="button" class="btn btn-link">@Login</button>
         <button routerLink="/register" type="button" class="btn btn-link">@Register</button>
         <button routerLink="/profile" type="button" class="btn btn-link">@Profile</button>

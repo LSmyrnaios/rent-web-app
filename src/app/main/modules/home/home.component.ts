@@ -8,6 +8,8 @@ import {fadeIn} from 'ng-animate';
 import {HttpClient} from '@angular/common/http';
 import {FileReaderService} from '../../../shared/services/file-reader.service';
 import {FileUploaderService} from '../../../shared/services/file-uploader.service';
+import {environment} from '../../../../environments/environment';
+
 
 @Component({
   selector: 'app-home',
@@ -15,11 +17,15 @@ import {FileUploaderService} from '../../../shared/services/file-uploader.servic
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   enterAnimation: TextAnimation = {
     animation: fadeIn,
     delay: 5,
     type: 'letter'
   };
+
+  api = environment.apiRoot;
+
   private users: any;
   destinations = [
     {
