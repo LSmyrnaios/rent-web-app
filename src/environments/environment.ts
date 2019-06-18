@@ -3,13 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 const apiRoot = 'https://localhost:8443/api';
+const usersEndpoint = apiRoot + '/users';
+const hotelsEndpoint = apiRoot + '/hotels';
 
 export const environment = {
   production: false,
   googleMapsKey: '',
   apiRoot,
-  usersEndpoint: apiRoot + '/users',
-  hotelsEndpoint: apiRoot + '/hotels'
+  usersEndpoint,
+  hotelsEndpoint,
+  hotelPhotosEndpoint: hotelsEndpoint + '/photos'
 };
 
 /*
