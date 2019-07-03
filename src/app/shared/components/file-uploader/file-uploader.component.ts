@@ -1,8 +1,8 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {FileQueueObject, FileUploaderService} from '../../services/file-uploader.service';
-import {Observable} from 'rxjs';
-import {FileReaderService} from '../../services/file-reader.service';
-import {map} from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { FileQueueObject, FileUploaderService } from '../../services/file-uploader.service';
+import { Observable } from 'rxjs';
+import { FileReaderService } from '../../services/file-reader.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-uploader',
@@ -42,11 +42,11 @@ export class FileUploaderComponent implements OnInit {
     this.uploader.onCompleteItem = this.completeItem;
   }
 
-  completeItem = (item: FileQueueObject, response: any) => {
+  completeItem(item: FileQueueObject, response: any) {
     console.log(item);
     console.log(response);
     this.onCompleteItem.emit({item, response});
-  };
+  }
 
   addToQueue() {
     const fileBrowser = this.fileInput.nativeElement;

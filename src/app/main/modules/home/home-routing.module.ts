@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './home.component';
-import {HomeResolver} from './home-resolver';
-import {FileUploaderComponent} from '../../../shared/components/file-uploader/file-uploader.component';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { HomeResolver } from './home-resolver';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -16,16 +15,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    FileUploaderComponent
-  ],
+  declarations: [],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
   ],
   exports: [
-    RouterModule,
-    FileUploaderComponent
+    RouterModule
   ]
 })
 export class HomeRoutingModule {

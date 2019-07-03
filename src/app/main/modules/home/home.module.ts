@@ -15,9 +15,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {TypeaheadModule} from 'ngx-bootstrap';
+import { FileUploaderComponent } from '../../../shared/components/file-uploader/file-uploader.component';
 
 @NgModule({
-  declarations: [HomeComponent, SearchBarComponent],
+  declarations: [HomeComponent, SearchBarComponent, FileUploaderComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -29,6 +30,9 @@ import {TypeaheadModule} from 'ngx-bootstrap';
     AngularFontAwesomeModule,
     GooglePlaceModule,
     TypeaheadModule
+  ],
+  exports: [
+    FileUploaderComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
