@@ -17,4 +17,7 @@ export class HotelItemListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPageIndexChange($event: number) {
+    console.log($event);
+  }
 }

@@ -5,3 +5,8 @@
     </div>
   </div>
 </section>
+<nz-pagination [nzPageIndex]="hotelPagedResults.page + 1"
+               [nzTotal]="hotelPagedResults.totalPages"
+               (nzPageIndexChange)="onPageIndexChange($event)"
+></nz-pagination>
+<nz-empty *ngIf="!hotelPagedResults.totalElements"></nz-empty>

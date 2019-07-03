@@ -214,8 +214,4 @@ export class SearchResultsComponent implements OnInit {
       console.log(this.filters);
     });
   }
-
-  onPageIndexChange($event: number) {
-    console.log($event);
-  }
 }

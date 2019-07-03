@@ -27,11 +27,6 @@
       <app-sort-bar></app-sort-bar>
       <hr>
       <app-hotel-item-list [hotelPagedResults]="hotelPagedResults"></app-hotel-item-list>
-      <nz-pagination [nzPageIndex]="hotelPagedResults.page + 1"
-                     [nzTotal]="hotelPagedResults.totalPages"
-                     (nzPageIndexChange)="onPageIndexChange($event)"
-      ></nz-pagination>
-      <nz-empty *ngIf="!hotelPagedResults.totalElements"></nz-empty>
     </div>
   </div>
 </div>
