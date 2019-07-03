@@ -13,13 +13,15 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {AgmCoreModule} from '@agm/core';
 import {Ng5SliderModule} from 'ng5-slider';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import { SortBarComponent } from './components/sort-bar/sort-bar.component';
 
 @NgModule({
   declarations: [
     SearchResultsComponent,
     FiltersComponent,
     HotelItemComponent,
-    SearchWidgetComponent
+    SearchWidgetComponent,
+    SortBarComponent
   ],
   exports: [
     FiltersComponent

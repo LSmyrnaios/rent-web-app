@@ -1,0 +1,7 @@
+<div class="row" id="sort_by">
+  <ul class="sort_option_list">
+    <li *ngFor="let option of options" [ngClass]="{'selected': selected === option.id }" class="col-6 sort_category">
+      <a class="sort_option" (click)="sortResults($event, option.id)">{{ option.name }}</a>
+    </li>
+  </ul>
+</div>

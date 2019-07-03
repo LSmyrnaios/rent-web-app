@@ -15,12 +15,14 @@ export class SearchRequest {
   roomService?: boolean;
   minPrice: number;
   maxPrice: number;
+  // tslint:disable-next-line:variable-name
+  sort_field: string;
+  order: string;
   constructor(lat: number, lng: number, startDate: string, endDate: string, visitors: number, wifi: boolean,
-              // tslint:disable-next-line:variable-name
               swimmingPool: boolean, gym: boolean, spa: boolean, bar: boolean, restaurant: boolean,
-              // tslint:disable-next-line:variable-name
               petsAllowed: boolean, parking: boolean, roomService: boolean, minPrice: number,
-              maxPrice: number) {
+              // tslint:disable-next-line:variable-name
+              maxPrice: number, sort_field: string, order: string) {
     this.lat = lat;
     this.lng = lng;
     this.startDate = startDate;
@@ -37,5 +39,7 @@ export class SearchRequest {
     this.roomService = roomService;
     this.minPrice = minPrice;
     this.maxPrice = maxPrice;
+    this.sort_field = sort_field;
+    this.order = order;
   }
 }
