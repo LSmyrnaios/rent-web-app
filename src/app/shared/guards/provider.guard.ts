@@ -1,10 +1,9 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
-import {AuthenticationService} from '../services/authentication.service';
-import {ToastrService} from 'ngx-toastr';
-import {Role} from '../models/role';
-import {JwtHelperService} from '@auth0/angular-jwt';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from '../services/authentication.service';
+import { ToastrService } from 'ngx-toastr';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +40,7 @@ nolg+ visitor    // -> login      -> apply
         return false;
       } else {
         const pendingProvider = sessionStorage.getItem('pending_provider');
-        if (pendingProvider) {
+        if (pendingProvider !== 'null' && pendingProvider === 'true') {
           this.toastr.warning('Please wait for your provider application to be accepted.', 'Pending confirmation');
           return false;
         }
