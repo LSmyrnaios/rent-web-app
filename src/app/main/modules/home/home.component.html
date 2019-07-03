@@ -1,5 +1,5 @@
 <app-search-bar></app-search-bar>
-<div class="container">
+<div class="container" style="margin-bottom: 45px">
   <p class="h4">
     <teximate
       [text]="'Whatever accommodation you’re looking for, we’ve got it…'"
@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="row">
-    <div *ngFor="let dst of destinations" class="col-md-4 tile-box">
+    <div *ngFor="let dst of destinations" class="col-md-4 tile-box" (click)="homepageIconGoToDestination(dst)">
       <div class="card mb-4 box-shadow">
         <div class="card-overlay">
           <h2 class="card-title">{{dst.title}}</h2>
@@ -21,6 +21,7 @@
              alt="Thumbnail [100%x225]" style="width: 100%; display: block;"
              src="{{dst.image}}"
              data-holder-rendered="true">
+
       </div>
     </div>
   </div>
