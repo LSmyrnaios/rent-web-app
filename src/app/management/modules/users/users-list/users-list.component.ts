@@ -16,7 +16,7 @@ export class UsersListComponent implements OnInit {
   mapOfExpandData: { [key: string]: boolean } = {};
   switchValue = false;
   pageIndex = 1;
-  pageSize = 17;
+  pageSize = 10;
   total = 1;
   users = [];
   loading = true;
@@ -25,10 +25,6 @@ export class UsersListComponent implements OnInit {
   searchGenderList: string[] = [];
   selected: string;
   pagedResponse: PagedResponse<User>;
-  filterGender = [
-    {text: 'male', value: 'male'},
-    {text: 'female', value: 'female'}
-  ];
 
   listOfSelection = [
     {

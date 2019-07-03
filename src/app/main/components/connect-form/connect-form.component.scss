@@ -135,9 +135,7 @@ input {
 }
 
 .overlay {
-
-  background: #eeeeee;
-  color: #FFFFFF;
+  background-image: linear-gradient(to right, #03A9F4 , #00BCD4);
   position: relative;
   left: -100%;
   height: 100%;

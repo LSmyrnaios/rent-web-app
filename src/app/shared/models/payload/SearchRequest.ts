@@ -5,20 +5,16 @@ export class SearchRequest {
   endDate?: string;
   visitors?: number;
   wifi?: boolean;
-  // tslint:disable-next-line:variable-name
   swimmingPool?: boolean;
   gym?: boolean;
   spa?: boolean;
   bar?: boolean;
   restaurant?: boolean;
-  // tslint:disable-next-line:variable-name
   petsAllowed?: boolean;
   parking?: boolean;
-  // tslint:disable-next-line:variable-name
   roomService?: boolean;
   minPrice: number;
   maxPrice: number;
-
   constructor(lat: number, lng: number, startDate: string, endDate: string, visitors: number, wifi: boolean,
               // tslint:disable-next-line:variable-name
               swimmingPool: boolean, gym: boolean, spa: boolean, bar: boolean, restaurant: boolean,

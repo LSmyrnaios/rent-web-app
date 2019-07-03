@@ -3,6 +3,7 @@ import {HotelService} from '../../../shared/services/hotel.service';
 import {ActivatedRoute} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {SimpleSmoothScrollService} from 'ng2-simple-smooth-scroll';
+import { Hotel } from '../../../shared/models/hotel';
 
 @Component({
   selector: 'app-hotel',
@@ -11,7 +12,7 @@ import {SimpleSmoothScrollService} from 'ng2-simple-smooth-scroll';
 })
 export class HotelComponent implements OnInit {
 
-  hotel: any;
+  hotel: Hotel;
 
   constructor(
     private hotelService: HotelService,

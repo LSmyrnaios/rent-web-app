@@ -102,7 +102,7 @@ export class ConnectFormComponent implements OnInit, OnDestroy {
         console.log('response', response);
         this.loginProgress = false;
         this.registerForm.reset();
-        this.toastr.info('We are happy to have you!', 'Welcome back ' + response.user.profile.name + '!',
+        this.toastr.info('We are happy to have you!', 'Welcome back ' + response.user.username + '!',
           {
             timeOut: 8000
           });
