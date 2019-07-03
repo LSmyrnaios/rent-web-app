@@ -26,13 +26,7 @@
       <hr>
       <app-sort-bar></app-sort-bar>
       <hr>
-      <section class="search-box">
-        <div class="row">
-          <div class="col-md-12 listing-block">
-            <app-hotel-item *ngFor="let hotel of hotelPagedResults.content" [hotel]="hotel"></app-hotel-item>
-          </div>
-        </div>
-      </section>
+      <app-hotel-item-list [hotelPagedResults]="hotelPagedResults"></app-hotel-item-list>
       <nz-pagination [nzPageIndex]="hotelPagedResults.page + 1"
                      [nzTotal]="hotelPagedResults.totalPages"
                      (nzPageIndexChange)="onPageIndexChange($event)"
