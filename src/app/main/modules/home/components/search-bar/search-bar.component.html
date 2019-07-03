@@ -7,7 +7,7 @@
       <div class="row">
 
         <!--Autocomplete-->
-        <div class="input-group col-12 col-md-6 col-xl-4">
+        <div class="input-group col-12 col-md-6 col-xl-3">
           <div class="input-group-prepend">
             <span class="input-group-text">
                <fa name="bed"></fa>
@@ -26,6 +26,25 @@
             aria-describedby="basic-addon1"
             #place
           >
+        </div>
+
+        <!--Radius-->
+        <div class="input-group col-12 col-md-6 col-xl-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+               <fa name="map-signs"></fa>
+            </span>
+          </div>
+          <input
+            min="0"
+            max="30"
+            value="5"
+            type="number"
+            class="form-control"
+            placeholder="Radius"
+            formControlName="radius"
+            aria-label="place"
+            aria-describedby="basic-addon1">
         </div>
 
         <!--Date Range Picker-->
@@ -67,7 +86,7 @@
             aria-describedby="basic-addon1">
         </div>
         <!--Search button-->
-        <div class="input-group col-12 col-md-6 col-xl-3 justify-content-end">
+        <div class="input-group col-12 col-md-6 col-xl-2 justify-content-end">
           <button
             [disabled]="!form.valid || progress || form.untouched"
             style="width: 100%;"

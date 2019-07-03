@@ -15,6 +15,7 @@ export class SearchWidgetComponent implements OnInit {
   @Input() visitors;
   @Input() startDate;
   @Input() endDate;
+  @Input() radius;
 
   form: FormGroup;
 
@@ -47,6 +48,9 @@ export class SearchWidgetComponent implements OnInit {
         lng: [null, {
           validators: [Validators.required]
         }],
+        radius: [null, {
+          validators: [Validators.min(0), Validators.max(30)]
+        }],
         visitors: [null, {
           validators: [Validators.min(1), Validators.max(15)]
         }]
@@ -63,6 +67,7 @@ export class SearchWidgetComponent implements OnInit {
     this.form.get('visitors').setValue(this.visitors);
     this.form.get('lat').setValue(this.latitude);
     this.form.get('lng').setValue(this.longitude);
+    this.form.get('radius').setValue(this.radius);
   }
 
   valuechange(value: string) {
@@ -88,6 +93,7 @@ export class SearchWidgetComponent implements OnInit {
           destination: value.destination,
           lat: value.lat,
           lng: value.lng,
+          radius: value.radius,
           visitors: value.visitors,
         },
         queryParamsHandling: 'merge'
