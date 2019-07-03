@@ -10,3 +10,85 @@ agm-map {
 #right-content {
 
 }
+
+#sort_by {
+  border-radius: 3px;
+  border: 1px solid #07c;
+  position: relative;
+  background: #fff;
+  border-top-width: 5px;
+  margin: 10px 0;
+  display: block;
+}
+
+#sort_by .sort_option_list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 28px;
+  font-size: 0;
+}
+
+#sort_by .sort_option_list, #sort_by .sort_option_sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sort_by .sort_category {
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-color: #07c;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-bottom: -1px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  position: relative;
+  padding: 0;
+}
+
+#sort_by .sort_option, #sort_by .deal-container {
+  background: 0;
+  border-radius: 3px;
+  color: #003580;
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 27px;
+  outline: 0;
+  padding: 0 .7em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#sort_by .sort_option:focus, #sort_by .sort_suboption:focus {
+  outline: 2px solid #89ceff;
+  position: relative;
+  z-index: 1;
+}
+
+#sort_by .sort_option:hover {
+  background-color: #e9f0fa;
+}
+
+.header {
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #383838;
+  margin-bottom: 0;
+}
+
+hr {
+  //margin: 0;
+}

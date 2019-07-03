@@ -1,5 +1,5 @@
 <div class="media">
-  <div class="fav-box"><i class="fa fa-heart-o" aria-hidden="true"></i>
+  <div class="fav-box">35$
   </div>
   <a routerLink="/hotels/{{hotel.id}}">
     <img class="d-flex align-self-start"
@@ -7,15 +7,19 @@
          alt="Generic placeholder image">
   </a>
   <div class="media-body pl-3">
-    <div class="price">{{hotel.description_short}}
-      <small></small>
-    </div>
+    <a routerLink="/hotels/{{hotel.id}}" style="display: inline-block;">
+      <div class="price">{{hotel.name}}
+      </div>
+    </a>
     <div class="stats">
       <span>
         <i class="fa fa-arrows-alt"></i>1678 Sq ft
       </span>
       <span><i class="fa fa-bath"></i>{{hotel.number_of_rooms}} Rooms
       </span>
+    </div>
+    <div>
+      <nz-rate [ngModel]="hotel.stars" nzDisabled></nz-rate>
     </div>
     <div class="address">{{hotel.address}}
     </div>

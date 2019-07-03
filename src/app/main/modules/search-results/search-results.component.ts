@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import * as moment from 'moment';
-import {AmenitiesCount} from '../../../shared/models/AmenitiesCount';
-import {Filters} from '../../../shared/models/Filters';
-import {PagedResponse} from '../../../shared/models/payload/PagedResponse';
-import {Hotel} from '../../../shared/models/hotel';
+import { AmenitiesCount } from '../../../shared/models/AmenitiesCount';
+import { Filters } from '../../../shared/models/Filters';
+import { PagedResponse } from '../../../shared/models/payload/PagedResponse';
+import { Hotel } from '../../../shared/models/hotel';
 
 @Component({
   selector: 'app-search',
@@ -185,11 +185,17 @@ export class SearchResultsComponent implements OnInit {
       /* Get the hotels from the route data after the resolver fetched them */
       this.hotelPagedResults = response.data.results;
       this.amenitiesCount = response.data.amenitiesCount;
+      const min = this.route.snapshot.queryParamMap.get('minPrice');
+      const max = this.route.snapshot.queryParamMap.get('maxPrice');
       this.filters = {
-        floorPrice: 45, // response.data.floorPrice,
-        ceilPrice: 78, // response.data.ceilPrice,
-        minPrice: response.data.minPrice,
-        maxPrice: response.data.maxPrice,
+        floorPrice: response.data.floorPrice,
+        ceilPrice: response.data.ceilPrice,
+        minPrice: min == null ? response.data.floorPrice :
+          parseInt(min, 10) < response.data.floorPrice ?
+            response.data.floorPrice : parseInt(min, 10),
+        maxPrice: max == null ? response.data.ceilPrice :
+          parseInt(max, 10) > response.data.ceilPrice ?
+            response.data.ceilPrice : parseInt(max, 10),
         wifi: this.route.snapshot.queryParamMap.get('wifi') === 'true',
         petsAllowed: this.route.snapshot.queryParamMap.get('petsAllowed') === 'true',
         bar: this.route.snapshot.queryParamMap.get('bar') === 'true',
