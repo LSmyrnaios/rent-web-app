@@ -6,8 +6,8 @@ export interface Hotel {
   address: string;
   stars: string;
   email: string;
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
   description_short: string;
   description_long: string;
   amenities: any[];

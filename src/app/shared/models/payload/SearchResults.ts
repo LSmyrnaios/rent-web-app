@@ -5,6 +5,6 @@ import {AmenitiesCount} from '../AmenitiesCount';
 export interface SearchResults {
   results: PagedResponse<Hotel>;
   amenitiesCount: AmenitiesCount;
-  minPrice: number;
-  maxPrice: number;
+  floorPrice: number;
+  ceilPrice: number;
 }
