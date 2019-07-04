@@ -12,7 +12,7 @@ export const environment = {
   apiRoot,
   usersEndpoint,
   hotelsEndpoint,
-  hotelPhotosEndpoint: hotelsEndpoint + '/photos'
+  checkEndpoint: apiRoot + '/check'
 };
 
 /*

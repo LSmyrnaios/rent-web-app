@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    HotelItemListComponent
+    HotelItemListComponent,
+    HotelItemComponent
   ]
 })
 export class HotelItemListModule { }

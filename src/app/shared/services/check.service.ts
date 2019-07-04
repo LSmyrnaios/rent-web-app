@@ -12,15 +12,15 @@ export class CheckService {
   }
 
   checkEmailExists(email: string) {
-    return this.http.get<any>(environment.apiRoot + '/check/exists/email/' + email);
+    return this.http.get<any>(environment.checkEndpoint + '/exists/email/' + email);
   }
 
   checkUsernameExists(username: string) {
-    return this.http.get<any>(environment.apiRoot + '/check/exists/username/' + username);
+    return this.http.get<any>(environment.checkEndpoint + '/exists/username/' + username);
   }
 
   checkProviderApplicationStatus() {
-    return this.http.get<any>(environment.apiRoot + '/check/provider/');
+    return this.http.get<any>(environment.checkEndpoint + '/provider/');
   }
 
 }

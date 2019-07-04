@@ -17,7 +17,7 @@ export enum FileQueueStatus {
 export class FileQueueObject {
   public file: any;
   public status: FileQueueStatus = FileQueueStatus.Pending;
-  public progress: number = 0;
+  public progress = 0;
   public request: Subscription = null;
   public response: HttpResponse<any> | HttpErrorResponse = null;
 
@@ -49,13 +49,12 @@ export class FileQueueObject {
 export class FileUploaderService {
 
   public singleUploadUrl: string = environment.apiRoot + '/files/upload';
-  public multipleUploadUrl: string = environment.apiRoot + '/files/multiple';
 
   private _queue: BehaviorSubject<FileQueueObject[]>;
   private _files: FileQueueObject[] = [];
 
   constructor(private http: HttpClient) {
-    this._queue = <BehaviorSubject<FileQueueObject[]>> new BehaviorSubject(this._files);
+    this._queue = new BehaviorSubject(this._files) as BehaviorSubject<FileQueueObject[]>;
   }
 
   // the queue$

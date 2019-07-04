@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
   }
 
   getUsers() {
-    this.http.get('https://localhost:8443/api/users')
+    this.http.get(environment.usersEndpoint)
       .subscribe(response => {
         console.log('forceTimeout', response);
         this.users = response;

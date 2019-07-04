@@ -13,5 +13,5 @@ export interface Hotel {
   amenities: any[];
   createdAt?: Date;
   updatedAt?: Date;
-  photo: string;
+  photosUrls: string[];
 }

@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
 
   editing = false;
 
-  public session: Session;
+  session: Session;
 
   username: string;
 
