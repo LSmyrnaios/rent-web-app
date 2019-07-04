@@ -172,11 +172,11 @@ export class SearchResultsComponent implements OnInit {
       this.destination = this.route.snapshot.queryParamMap.get('destination') == null ? '' :
         this.route.snapshot.queryParamMap.get('destination');
 
-      this.startDate = this.route.snapshot.queryParamMap.get('start') == null ?
-        moment(new Date()).format('YYYY-MM-DD') : this.route.snapshot.queryParamMap.get('start');
+      this.startDate = this.route.snapshot.queryParamMap.get('startDate') == null ?
+        moment(new Date()).format('YYYY-MM-DD') : this.route.snapshot.queryParamMap.get('startDate');
 
-      this.endDate = this.route.snapshot.queryParamMap.get('end') == null ?
-        moment(new Date()).add(2, 'days').format('YYYY-MM-DD') : this.route.snapshot.queryParamMap.get('end');
+      this.endDate = this.route.snapshot.queryParamMap.get('endDate') == null ?
+        moment(new Date()).add(2, 'days').format('YYYY-MM-DD') : this.route.snapshot.queryParamMap.get('endDate');
       this.visitors = this.route.snapshot.queryParamMap.get('visitors') == null ?
         1 : parseInt(this.route.snapshot.queryParamMap.get('visitors'), 10);
       this.lat = this.route.snapshot.queryParamMap.get('lat') == null ?

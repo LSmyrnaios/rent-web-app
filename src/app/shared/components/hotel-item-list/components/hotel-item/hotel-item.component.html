@@ -1,13 +1,13 @@
 <div class="media">
   <div class="fav-box">35$
   </div>
-  <a routerLink="/hotels/{{hotel.id}}">
+  <a (click)="goToHotel(hotel.id)">
     <img class="d-flex align-self-start"
          src="{{photoUrl}}"
          alt="Hotel image">
   </a>
   <div class="media-body pl-3">
-    <a routerLink="/hotels/{{hotel.id}}" style="display: inline-block;">
+    <a style="display: inline-block;" (click)="goToHotel(hotel.id)">
       <div class="price">{{hotel.name}}
       </div>
     </a>

@@ -33,6 +33,9 @@ export class SearchResultsResolver implements Resolve<Observable<any>> {
         this.searchRequest[key] = route.queryParamMap.get(key);
       }
     });
+
+    console.log('Search Request', this.searchRequest);
+
     return this.hotelService.search(this.searchRequest);
   }
 }

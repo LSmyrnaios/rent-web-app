@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-search-widget',
@@ -38,8 +39,8 @@ export class SearchWidgetComponent implements OnInit {
           validators: [Validators.required]
         }],
         daterangeGroup: this.fb.group({
-            startDate: [null, {validators: []}],
-            endDate: [null, {validators: []}]
+            startDate: [null, {validators: [Validators.required]}],
+            endDate: [null, {validators: [Validators.required]}]
           }
         ),
         lat: [null, {
@@ -59,11 +60,12 @@ export class SearchWidgetComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('Widget', this.startDate, this.endDate);
     const start = this.startDate.split('-');
     const end = this.endDate.split('-');
     this.form.get('destination').setValue(this.destination);
-    this.form.get('daterangeGroup').get('startDate').setValue(new Date(Number(start[2]), Number(start[1]) - 1, Number(start[0])));
-    this.form.get('daterangeGroup').get('endDate').setValue(new Date(Number(end[2]), Number(end[1]) - 1, Number(end[0])));
+    this.form.get('daterangeGroup').get('startDate').setValue(new Date(Number(start[0]), Number(start[1]) - 1, Number(start[2])));
+    this.form.get('daterangeGroup').get('endDate').setValue(new Date(Number(end[0]), Number(end[1]) - 1, Number(end[2])));
     this.form.get('visitors').setValue(this.visitors);
     this.form.get('lat').setValue(this.latitude);
     this.form.get('lng').setValue(this.longitude);
@@ -88,8 +90,8 @@ export class SearchWidgetComponent implements OnInit {
     this.router.navigate(['/search'],
       {
         queryParams: {
-          start: value.daterangeGroup.startDate,
-          end: value.daterangeGroup.endDate,
+          startDate: moment(value.daterangeGroup.startDate).format('YYYY-MM-DD'),
+          endDate: moment(value.daterangeGroup.endDate).format('YYYY-MM-DD'),
           destination: value.destination,
           lat: value.lat,
           lng: value.lng,

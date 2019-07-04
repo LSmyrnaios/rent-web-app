@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {differenceInCalendarDays} from 'date-fns';
-import {Address} from 'ngx-google-places-autocomplete/objects/address';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { differenceInCalendarDays } from 'date-fns';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -68,12 +68,14 @@ export class SearchBarComponent implements OnInit {
   }
 
   submit(value: any) {
-    console.log(value);
+    console.log('search-bar', value, value.daterange[0], value.daterange[1]);
     this.progress = true;
     this.router.navigate(['search'], {
       queryParams: {
-        start: moment(value.daterange[0]).format('DD-MM-YYYY'),
-        end: moment(value.daterange[1]).format('DD-MM-YYYY'),
+        startDate: value.daterange[0] === undefined ? moment(new Date()).format('YYYY-MM-DD')
+          : moment(value.daterange[0]).format('YYYY-MM-DD'),
+        endDate: value.daterange[1] === undefined ? moment(new Date()).add(2, 'days').format('YYYY-MM-DD')
+          : moment(value.daterange[1]).format('YYYY-MM-DD'),
         destination: value.destination,
         lat: value.lat,
         lng: value.lng,

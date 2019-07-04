@@ -1,15 +1,21 @@
 <div class="rooms-list">
-  <h2>Reserve a room</h2>
+  <h2 [hidden]="rooms.length === 0" >Reserve a room</h2>
+  <h2 [hidden]="rooms.length != 0" style="margin-bottom: 50px;">No rooms available!</h2>
   <ul class="list-group">
     <li *ngFor="let room of rooms" class="list-group-item">
-      <img class="room-image" src="{{room.photo}}">
-      <div class="people-icons">
-        <img *ngFor="let in of counter(room.capacity); let i = index;" src="assets/images/person.svg"
-        class="person-icon">
+      <img class="room-image" src="{{room.image}}" alt="room-image">
+      <div class="row justify-content-end" style="width: 100%; margin-top: 50px;">
+        <div class="people-icons col">
+          <img *ngFor="let p of counter(room.capacity); let i = index;"
+               src="../../../../../../assets/images/person.svg"
+               class="person-icon" alt="person-icon">
+        </div>
+        <p class="room-description col">Room capacity: {{room.capacity}}</p>
+        <div class="col">
+          <button nz-button nzType="primary" (click)="reserveRoom(room)" style="margin-left: 100px;">Reserve</button>
+        </div>
       </div>
-      <p class="room-description">{{room.description}}</p>
-      <button type="button" class="btn btn-primary">Reserve</button>
-      <h6 class="available">Available: {{room.number}}</h6>
+      <h6 class="available">Room Id: {{room.id}}</h6>
     </li>
   </ul>
 </div>
