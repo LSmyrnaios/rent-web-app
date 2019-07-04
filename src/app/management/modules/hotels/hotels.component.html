@@ -1,9 +1,15 @@
 <div class="container-fluid">
-  <h2>Hotels</h2>
-  <hr>
-  <div class="row">
-    <div class="form-group col-md-12">
-      <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-    </div>
-  </div>
+
+  <ng-container *ngIf="!createHotel">
+    <button nz-button [nzSize]="size" nzType="primary" (click)="onClick()">Create new Hotel</button>
+    <hr>
+    <h1>My Hotels</h1>
+    <hr>
+    <app-hotels-list></app-hotels-list>
+  </ng-container>
+
+  <ng-container *ngIf="createHotel">
+    <app-hotels-insertion></app-hotels-insertion>
+  </ng-container>
+
 </div>

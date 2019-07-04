@@ -6,6 +6,8 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import * as moment from 'moment';
 import {SearchResults} from '../models/payload/SearchResults';
+import {User} from '../models/user';
+import {PagedResponse} from '../models/payload/PagedResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +19,16 @@ export class HotelService {
   ) {
   }
 
+  createHotel(hotel: Hotel) {
+    return this.http.post(environment.hotelsEndpoint, hotel);
+  }
+
   getHotelDetails(hotelID): Observable<Hotel> {
-    return this.http.get<Hotel>(environment.apiRoot + '/hotels/' + hotelID);
+    return this.http.get<Hotel>(environment.hotelsEndpoint + '/' + hotelID);
+  }
+
+  getHotelsByProvider(provider: User) {
+    return this.http.get<PagedResponse<Hotel>>(environment.hotelsEndpoint + '/byProviderId/' + provider.id);
   }
 
   search(filters) {

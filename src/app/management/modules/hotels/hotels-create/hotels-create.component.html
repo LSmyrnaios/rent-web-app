@@ -1,0 +1,100 @@
+<div class="container">
+
+  <ng-container *ngIf="!isSubmitted">
+    <h1>Create new Hotel</h1>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="submit(form.value)" class="form-validate">
+      <div class="form-group">
+        <div class="control-label">
+          <label id="name-lbl" for="email" class="required">Name<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control"
+                 id="name"
+                 type="text"
+                 formControlName="name"
+                 [ngClass]="{'is-invalid': (form.get('name').dirty) &&
+                                                !form.get('name').valid }"/>
+          <span class="invalid-feedback">
+                <span *ngIf="(form.get('name').errors?.name && form.get('name').touched)">
+                  The name format is wrong.
+                </span>
+              </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">
+          <label id="email-lbl" for="email" class="required">Email<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control"
+                 id="email"
+                 type="email"
+                 formControlName="email"
+                 [ngClass]="{'is-invalid': (form.get('email').dirty) &&
+                                                !form.get('email').valid }"/>
+          <span class="invalid-feedback">
+                <span *ngIf="(form.get('email').errors?.email && form.get('email').touched)">
+                  The email format is wrong.
+                </span>
+              </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">
+          <label id="address-lbl" for="address" class="required">Address<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control" id="address" type="text" formControlName="address"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">
+          <label id="number_of_rooms-lbl" for="address" class="required">Number of rooms<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control" id="number_of_rooms" type="number" formControlName="number_of_rooms"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">
+          <label id="description_short-lbl" for="description_short" class="required">DescriptionShort<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control" id="description_short" type="text" formControlName="description_short"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">
+          <label id="description_long-lbl" for="description_long" class="required">DescriptionLong<span class="star"> *</span></label>
+        </div>
+        <div class="controls">
+          <input class="form-control" id="description_long" type="text" formControlName="description_long"/>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="form-group d-flex justify-content-start">
+          <div class="controls">
+            <button
+              [disabled]="!form.valid || progress || form.untouched"
+              type="submit"
+              class="btn btn-primary">
+              Create Hotel
+              <fa *ngIf="progress" name="cog" animation="spin"></fa>
+              <fa *ngIf="!progress" name="Create Hotel"></fa>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="isSubmitted">
+    <h1>Upload Hotel Photos</h1>
+    <hr>
+    <app-hotel-item [hotel]="hotel"></app-hotel-item>
+    <hr>
+    <app-file-uploader (onCompleteItem)="onCompleteItem($event)" [uploadUrl]="uploadUrl"></app-file-uploader>
+  </ng-container>
+
+</div>
