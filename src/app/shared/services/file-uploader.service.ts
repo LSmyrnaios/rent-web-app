@@ -47,9 +47,7 @@ export class FileQueueObject {
   providedIn: 'root'
 })
 export class FileUploaderService {
-
-  public singleUploadUrl: string = environment.apiRoot + '/files/upload';
-
+  
   private _queue: BehaviorSubject<FileQueueObject[]>;
   private _files: FileQueueObject[] = [];
 
@@ -68,9 +66,9 @@ export class FileUploaderService {
   }
 
   // public functions
-  public addToQueue(data: any) {
+  public addToQueue(data: any, url) {
     // add file to the queue$
-    _.each(data, (file: any) => this._addToQueue(file));
+    _.each(data, (file: any) => this._addToQueue(file, url));
   }
 
   public clearQueue() {
@@ -79,11 +77,11 @@ export class FileUploaderService {
     this._queue.next(this._files);
   }
 
-  public uploadAll() {
+  public uploadAll(url: string) {
     // upload all except already successfull or in progress
     _.each(this._files, (queueObj: FileQueueObject) => {
       if (queueObj.isUploadable()) {
-        this._upload(queueObj);
+        this._upload(queueObj, url);
       }
     });
   }
@@ -114,10 +112,10 @@ export class FileUploaderService {
   }
 
   // private functions
-  private _addToQueue(file: any) {
+  private _addToQueue(file: any, url: string) {
     const queueObj = new FileQueueObject(file);
     // set the individual object events
-    queueObj.upload = () => this._upload(queueObj);
+    queueObj.upload = () => this._upload(queueObj, url);
     queueObj.remove = () => this._removeFromQueue(queueObj);
     queueObj.cancel = () => this._cancel(queueObj);
 
@@ -130,13 +128,13 @@ export class FileUploaderService {
     _.remove(this._files, queueObj);
   }
 
-  private _upload(queueObj: FileQueueObject) {
+  private _upload(queueObj: FileQueueObject, url: string) {
     // create form data for file
     const form = new FormData();
     form.append('file', queueObj.file, queueObj.file.name);
 
     // upload file and report progress
-    const req = new HttpRequest('POST', this.singleUploadUrl, form, {
+    const req = new HttpRequest('POST', url, form, {
       reportProgress: true,
     });
 

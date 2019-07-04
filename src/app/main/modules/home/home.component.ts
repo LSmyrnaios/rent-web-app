@@ -72,6 +72,8 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  uploadUrl = environment.apiRoot + '/files/upload';
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
