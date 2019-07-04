@@ -19,7 +19,6 @@ export class FiltersComponent implements OnInit, OnChanges {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
   ) {
   }
 

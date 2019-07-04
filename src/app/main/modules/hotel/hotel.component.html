@@ -14,10 +14,10 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <app-rooms-list></app-rooms-list>
+      <app-rooms-list [rooms]="hotel.rooms" [hotelID]="hotel.id"></app-rooms-list>
     </div>
   </div>
-  <div class="row">
+  <div class="row jumbotron">
     <div class="col-12">
       <app-hotel-reviews></app-hotel-reviews>
     </div>
